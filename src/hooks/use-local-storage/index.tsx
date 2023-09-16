@@ -19,8 +19,6 @@ function useLocalStorage<T>(
     _def: z.ZodDefaultDef<z.ZodType<T>>;
   },
 ): [NonUndefined<T>, React.Dispatch<React.SetStateAction<NonUndefined<T>>>] {
-  console.log("scheme");
-
   const [value, setValue] = React.useState(() => {
     const parsed = parse(key, schema);
     return parsed as NonUndefined<T>;

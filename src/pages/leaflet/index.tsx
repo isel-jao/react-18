@@ -31,18 +31,18 @@ export default function LeafletPage() {
     site.name.toLowerCase().includes(name.toLowerCase()),
   );
   return (
-    <div className="relative  h-full w-full">
+    <div className="relative  h-full w-full !p-0">
       <div className=" absolute  right-4 top-0 z-[502] flex h-full  w-64 flex-col gap-4 py-4">
         <input
           type="text"
           placeholder="Search..."
-          className="bg-blur rounded bg-white/75  px-4 py-2 shadow"
+          className="bg-blur rounded bg-white/75 px-4  py-2 shadow dark:bg-black/75"
           value={name}
           onChange={(e) => {
             setName(e.target.value);
           }}
         />
-        <div className="bg-blur flex flex-1 flex-col  rounded bg-white/75 px-4 py-2 shadow">
+        <div className="bg-blur flex flex-1 flex-col  rounded bg-white/75 px-4 py-2 shadow dark:bg-black/75">
           {filterdSites.map((site) => (
             <div className="flex items-center gap-2 border-b py-2">
               <div>{site.name}</div>
@@ -53,7 +53,7 @@ export default function LeafletPage() {
       <MapContainer
         center={[31.791702, -7.09262]}
         zoom={6}
-        attributionControl={false}
+        // attributionControl={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
