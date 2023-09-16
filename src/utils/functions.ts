@@ -40,3 +40,10 @@ export function throttle(ms: number) {
     // do nothing
   }
 }
+
+export function IsValidRef(ref: unknown) {
+  if (typeof ref === "object" && ref !== null && "current" in ref) {
+    return true;
+  }
+  return false;
+}

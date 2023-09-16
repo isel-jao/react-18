@@ -10,6 +10,8 @@ import LeafletPage from "@/pages/leaflet";
 import DevPage from "@/pages/dev";
 import UseTransitionPage from "@/pages/use-transition";
 import UseLocalStoragePage from "@/pages/use-local-storage";
+import UseDeboucePage from "@/pages/use-debounce";
+import UseRefPage from "@/pages/use-ref";
 
 export type RouteType = {
   path: string;
@@ -51,6 +53,16 @@ export const routes: RouteType[] = [
             path: "use-local-storage",
             element: <UseLocalStoragePage />,
             name: "useLocalStorage",
+          },
+          {
+            path: "use-debounce",
+            element: <UseDeboucePage />,
+            name: "UseDebouce",
+          },
+          {
+            path: "use-ref",
+            element: <UseRefPage />,
+            name: "UseRef/ForwardRef",
           },
         ],
       },

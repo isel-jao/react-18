@@ -1,3 +1,4 @@
+import { IsValidRef } from "@/utils";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -7,7 +8,10 @@ interface Props
   size?: "sm" | "md" | "lg";
 }
 
-export default function Input({ className, size = "md", ...props }: Props) {
+export default function Input(
+  { className, size = "md", ...props }: Props,
+  ref?: React.LegacyRef<HTMLInputElement>,
+) {
   return (
     <input
       className={twMerge(
@@ -17,6 +21,7 @@ export default function Input({ className, size = "md", ...props }: Props) {
         size === "lg" && "px-6 py-3 text-base",
         className,
       )}
+      ref={IsValidRef(ref) ? ref : undefined}
       {...props}
     />
   );

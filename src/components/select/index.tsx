@@ -15,7 +15,7 @@ export default function Select({
   return (
     <select
       className={twMerge(
-        "rounded border-none bg-white/50 outline outline-gray-500/25 transition hover:outline-gray-500/50 focus:outline-2 focus:outline-primary-500 dark:bg-black/10",
+        "rounded border-none bg-white/50 outline outline-gray-500/25 transition hover:outline-gray-500/50 focus:outline-2 focus:outline-primary-500 dark:bg-black/10 [&>option]:bg-white/50 dark:[&>option]:bg-black/10",
         size === "sm" && "px-2 py-1 text-xs",
         size === "md" && "px-4 py-2 text-sm",
         size === "lg" && "px-6 py-3 text-base",

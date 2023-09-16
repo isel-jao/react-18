@@ -3,7 +3,7 @@ import { forwardRef, useRef, useState } from "react";
 
 const FrowardInput = forwardRef(Input);
 
-export default function DevPage() {
+export default function UseRefPage() {
   const [count, setCount] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const countRef = useRef(count);
@@ -16,7 +16,7 @@ export default function DevPage() {
   return (
     <div className="flex flex-col gap-6">
       <FrowardInput ref={inputRef} type="number" onChange={handleChange} />
-      <div className="flex items-center gap-4">count: {count}</div>
+      <div className="flex items-center gap-4">count: {count}I</div>
       <div className="flex items-center gap-4">
         countRef: {countRef.current}
       </div>
