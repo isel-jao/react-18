@@ -2,7 +2,11 @@ import Button from "@/components/button";
 import { useState, useTransition } from "react";
 
 function Home() {
-  return <div>home</div>;
+  return (
+    <div className="py-4">
+      <span className="shadow-neon p-3  ">test</span>
+    </div>
+  );
 }
 
 function About() {

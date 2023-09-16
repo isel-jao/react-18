@@ -1,18 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-const Context: any = React.createContext(null);
+const Context = React.createContext<unknown | null>(null);
 
-function useProvider<Type = any>() {
-  return React.useContext<Type>(Context);
+function useProvider<Type>() {
+  if (!Context) throw new Error("useProvider must be used within a Provider");
+  return React.useContext(Context) as Type;
 }
-interface Props {
-  value: any;
+interface Props<T> {
+  value: T;
   children?: React.ReactNode;
 }
-const Provider = ({ value, children }: Props) => {
+function Provider<T>({ value, children }: Props<T>) {
   return <Context.Provider value={value}>{children}</Context.Provider>;
-};
+}
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { useProvider, Provider };
 export default Provider;

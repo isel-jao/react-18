@@ -19,6 +19,10 @@ export default {
           950: "#001317",
         },
       },
+      boxShadow: {
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+        neon: "0 0 2px 2px #ffffff",
+      },
     },
   },
   plugins: [],
