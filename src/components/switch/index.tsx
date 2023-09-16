@@ -1,12 +1,11 @@
 import { twMerge } from "tailwind-merge";
 
-type SwitchProps = {
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
-};
-
-export default function Switch({ className, ...props }: SwitchProps) {
+interface Props
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "type" | "size" | "type"
+  > {}
+export default function Switch({ className, ...props }: Props) {
   return (
     <label
       className={twMerge(

@@ -33,3 +33,10 @@ export function stringify(value: unknown) {
 export function random(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export function throttle(ms: number) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    // do nothing
+  }
+}

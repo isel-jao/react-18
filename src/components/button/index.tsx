@@ -3,7 +3,6 @@ import { twMerge } from "tailwind-merge";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
-  color?: string;
   variant?: "filled" | "outline" | "ghost";
 }
 

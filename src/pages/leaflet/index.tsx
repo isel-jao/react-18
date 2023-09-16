@@ -43,8 +43,8 @@ export default function LeafletPage() {
           }}
         />
         <div className="bg-blur flex flex-1 flex-col  rounded bg-white/75 px-4 py-2 shadow dark:bg-black/75">
-          {filterdSites.map((site) => (
-            <div className="flex items-center gap-2 border-b py-2">
+          {filterdSites.map((site, index) => (
+            <div key={index} className="flex items-center gap-2 border-b py-2">
               <div>{site.name}</div>
             </div>
           ))}
@@ -60,8 +60,8 @@ export default function LeafletPage() {
           url="http://{s}.google.com/vt/lyrs=m&hl=en&gl=ma&x={x}&y={y}&z={z}"
           subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
-        {filterdSites.map((site) => (
-          <Marker position={[site.lat, site.lng]}>
+        {filterdSites.map((site, index) => (
+          <Marker position={[site.lat, site.lng]} key={index}>
             <Popup>
               <div className="bg-blur rounded bg-white/50 p-6 shadow-md">
                 {site.name}

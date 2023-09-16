@@ -1,10 +1,11 @@
 import Button from "@/components/button";
+import { throttle } from "@/utils";
 import { useState, useTransition } from "react";
 
 function Home() {
   return (
     <div className="py-4">
-      <span className="shadow-neon p-3  ">test</span>
+      <span className="p-3 shadow-neon  ">test</span>
     </div>
   );
 }
@@ -14,10 +15,7 @@ function About() {
 }
 
 function SlowPost({ title }: { title: string }) {
-  const start = performance.now();
-  while (performance.now() - start < 1) {
-    // do nothing
-  }
+  throttle(250);
   return (
     <div className="flex flex-col gap-4 rounded border p-4">
       <h2 className="text-2xl">{title}</h2>
@@ -32,8 +30,8 @@ function SlowPost({ title }: { title: string }) {
 
 function Posts() {
   return (
-    <div className="flex h-full flex-col gap-4 overflow-x-hidden">
-      {Array.from({ length: 2500 }).map((_, i) => (
+    <div className=" flex  h-full flex-1 flex-col gap-4 overflow-x-hidden">
+      {Array.from({ length: 6 }).map((_, i) => (
         <SlowPost key={i} title={`post ${i}`} />
       ))}
     </div>
@@ -51,7 +49,7 @@ export function WithUseTransition() {
   };
 
   return (
-    <div className="flex h-full flex-col gap-4 ">
+    <div className=" flex h-1  flex-1 flex-col gap-4">
       <div className="flex items-center gap-4">
         <Button
           onClick={() => selectTab(0)}
@@ -93,7 +91,7 @@ export function WithoutUseTransition() {
   };
 
   return (
-    <div className="flex h-full flex-col gap-4 ">
+    <div className="flex h-1 flex-1 flex-col gap-4 ">
       <div className="flex items-center gap-4">
         <Button
           onClick={() => selectTab(0)}

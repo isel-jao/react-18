@@ -8,7 +8,8 @@ import { ReactComponent as DevIcon } from "@/assets/dev.svg";
 import { ReactComponent as HookIcon } from "@/assets/hook.svg";
 import LeafletPage from "@/pages/leaflet";
 import DevPage from "@/pages/dev";
-import UseTransitionPage from "@/pages/use-state";
+import UseTransitionPage from "@/pages/use-transition";
+import UseLocalStoragePage from "@/pages/use-local-storage";
 
 export type RouteType = {
   path: string;
@@ -45,6 +46,11 @@ export const routes: RouteType[] = [
             path: "use-transition",
             element: <UseTransitionPage />,
             name: "useTransition",
+          },
+          {
+            path: "use-local-storage",
+            element: <UseLocalStoragePage />,
+            name: "useLocalStorage",
           },
         ],
       },
