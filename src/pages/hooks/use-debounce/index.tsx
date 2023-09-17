@@ -2,7 +2,7 @@ import Input from "@/components/input";
 import useDebouce from "@/hooks/use-debounce";
 import { useState } from "react";
 
-export default function UseDeboucePage() {
+export default function UseDebouce() {
   const [search, setSearch] = useState("hello");
   const [delay, setDelay] = useState(500);
   const debouncedSearch = useDebouce(search, delay);

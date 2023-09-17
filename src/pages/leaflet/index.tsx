@@ -53,7 +53,7 @@ export default function LeafletPage() {
       <MapContainer
         center={[31.791702, -7.09262]}
         zoom={6}
-        // attributionControl={false}
+        attributionControl={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

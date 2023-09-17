@@ -2,6 +2,7 @@ import { AppContext } from "@/App";
 import { useProvider } from "../provider";
 import Switch from "../switch";
 import { twMerge } from "tailwind-merge";
+import Card from "../card";
 
 interface Props
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {}
@@ -9,9 +10,9 @@ interface Props
 export default function Upbar({ className, ...props }: Props) {
   const { theme, setTheme } = useProvider<AppContext>();
   return (
-    <div
+    <Card
       className={twMerge(
-        `bg-blur  fixed left-0 top-0 flex h-14 w-full flex-wrap items-center gap-4 bg-white/50 px-4 shadow dark:bg-black/20`,
+        ` fixed left-0 top-0 flex h-14 w-full flex-wrap items-center gap-4 rounded-none px-4 py-0`,
         className,
       )}
       {...props}
@@ -28,6 +29,6 @@ export default function Upbar({ className, ...props }: Props) {
           setTheme(e.target.checked ? "dark" : "light");
         }}
       />
-    </div>
+    </Card>
   );
 }

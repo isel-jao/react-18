@@ -15,7 +15,7 @@ const settingSchema = z
     fontSize: 16,
   });
 
-export default function UseLocalStoragePage() {
+export default function UseLocalStorage() {
   const [settings, setSettings] = useLocalStorage("settings", settingSchema);
   return (
     <div className="flex flex-col gap-4">

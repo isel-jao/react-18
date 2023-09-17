@@ -2,6 +2,7 @@ import { routes, RouteType } from "@/components/router-provicder/router";
 import { useNavigate, useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import { useState } from "react";
+import Card from "../card";
 
 function RouterLink({
   route,
@@ -69,9 +70,9 @@ interface Props
 export default function SideBar({ className, ...props }: Props) {
   const appRouts = routes.find((route) => route.path === "/")?.children || [];
   return (
-    <div
+    <Card
       className={twMerge(
-        "bg-blur fixed bottom-0 left-0 top-14 flex w-64 flex-col gap-2 bg-white/50 px-2 py-4 shadow dark:bg-black/20",
+        "fixed bottom-0 left-0 top-14 flex w-64 flex-col gap-2 rounded-none border-t-0 px-2 py-4",
         className,
       )}
       {...props}
@@ -79,6 +80,6 @@ export default function SideBar({ className, ...props }: Props) {
       {appRouts.map((route, index) => (
         <RouterLink key={index} route={route} />
       ))}
-    </div>
+    </Card>
   );
 }

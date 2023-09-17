@@ -12,6 +12,7 @@ import UseTransitionPage from "@/pages/use-transition";
 import UseLocalStoragePage from "@/pages/use-local-storage";
 import UseDeboucePage from "@/pages/use-debounce";
 import UseRefPage from "@/pages/use-ref";
+import HooksPage from "@/pages/hooks";
 
 export type RouteType = {
   path: string;
@@ -40,31 +41,31 @@ export const routes: RouteType[] = [
       },
       {
         path: "hooks",
-        element: <Outlet />,
+        element: <HooksPage />,
         name: "hooks",
         icon: <HookIcon />,
-        children: [
-          {
-            path: "use-transition",
-            element: <UseTransitionPage />,
-            name: "useTransition",
-          },
-          {
-            path: "use-local-storage",
-            element: <UseLocalStoragePage />,
-            name: "useLocalStorage",
-          },
-          {
-            path: "use-debounce",
-            element: <UseDeboucePage />,
-            name: "UseDebouce",
-          },
-          {
-            path: "use-ref",
-            element: <UseRefPage />,
-            name: "UseRef/ForwardRef",
-          },
-        ],
+        // children: [
+        //   {
+        //     path: "use-transition",
+        //     element: <UseTransitionPage />,
+        //     name: "useTransition",
+        //   },
+        //   {
+        //     path: "use-local-storage",
+        //     element: <UseLocalStoragePage />,
+        //     name: "useLocalStorage",
+        //   },
+        //   {
+        //     path: "use-debounce",
+        //     element: <UseDeboucePage />,
+        //     name: "UseDebouce",
+        //   },
+        //   {
+        //     path: "use-ref",
+        //     element: <UseRefPage />,
+        //     name: "UseRef/ForwardRef",
+        //   },
+        // ],
       },
       {
         path: "dev",

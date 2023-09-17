@@ -3,11 +3,7 @@ import { throttle } from "@/utils";
 import { useState, useTransition } from "react";
 
 function Home() {
-  return (
-    <div className="py-4">
-      <span className="p-3 shadow-neon  ">test</span>
-    </div>
-  );
+  return <div className="py-4">home</div>;
 }
 
 function About() {
@@ -30,7 +26,7 @@ function SlowPost({ title }: { title: string }) {
 
 function Posts() {
   return (
-    <div className=" flex  h-full flex-1 flex-col gap-4 overflow-x-hidden">
+    <div className="  flex h-full flex-1 flex-col gap-4 overflow-x-hidden">
       {Array.from({ length: 6 }).map((_, i) => (
         <SlowPost key={i} title={`post ${i}`} />
       ))}
@@ -49,7 +45,7 @@ export function WithUseTransition() {
   };
 
   return (
-    <div className=" flex h-1  flex-1 flex-col gap-4">
+    <div className="  flex h-1 flex-1 flex-col gap-4 overflow-scroll pb-4">
       <div className="flex items-center gap-4">
         <Button
           onClick={() => selectTab(0)}
@@ -91,7 +87,7 @@ export function WithoutUseTransition() {
   };
 
   return (
-    <div className="flex h-1 flex-1 flex-col gap-4 ">
+    <div className="  flex h-1 flex-1 flex-col gap-4 overflow-scroll pb-4">
       <div className="flex items-center gap-4">
         <Button
           onClick={() => selectTab(0)}
@@ -123,15 +119,15 @@ export function WithoutUseTransition() {
   );
 }
 
-export default function UseTransitionPage() {
+export default function UseTransition() {
   return (
-    <div className="overflow-x- flex h-full gap-4">
-      <div className="flex h-full flex-1 flex-col border-r">
-        <h1 className="py-4 text-4xl">with useTransition</h1>
+    <div className=" flex h-full flex-1 gap-4 ">
+      <div className=" flex h-full flex-1 flex-col ">
+        <h1 className="py-4 text-xl">with useTransition</h1>
         <WithUseTransition />
       </div>
       <div className="flex h-full flex-1 flex-col">
-        <h1 className="py-4 text-4xl">without useTransition</h1>
+        <h1 className="py-4 text-xl">without useTransition</h1>
         <WithoutUseTransition />
       </div>
     </div>
