@@ -1,8 +1,8 @@
 import { AppContext } from "@/App";
-import { useProvider } from "../provider";
 import Switch from "../switch";
 import { twMerge } from "tailwind-merge";
 import Card from "../card";
+import useProvider from "@/hooks/use-provider";
 
 interface Props
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {}

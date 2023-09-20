@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useDebugValue } from "react";
 import { z } from "zod";
 
 function parse<T>(key: string, schema: z.ZodType<T>) {
@@ -23,6 +23,7 @@ function useLocalStorage<T>(
     const parsed = parse(key, schema);
     return parsed as NonUndefined<T>;
   });
+  useDebugValue(value);
 
   React.useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(value));

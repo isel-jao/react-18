@@ -6,9 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="text- bg-slat flex h-screen  w-screen  flex-col  pl-64 pt-14 text-black  dark:bg-primary-900 dark:text-white">
       <Upbar className="z-1" />
       <SideBar />
-      <div className=" flex-1 overflow-x-hidden scroll-smooth [&>*]:p-4">
-        {children}
-      </div>
+      <div className=" flex-1 overflow-x-hidden  [&>*]:p-4">{children}</div>
     </div>
   );
 }

@@ -23,7 +23,38 @@ export default {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
         neon: "0 0 2px 2px #ffffff",
       },
+      keyframes: {
+        shake: {
+          "0%, 50%, 100%": { transform: "translate(0, 0) " },
+          "25%": { transform: "translate(5px, 5px) " },
+          "75%": { transform: "translate(-5px, 5px) " },
+        },
+        "horizontal-shake": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "25%, 75%": { transform: "translateX(5px)" },
+          "50%": { transform: "translateX(-5px)" },
+        },
+        "vertical-shake": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "25%, 75%": { transform: "translateY(5px)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+        "max-height": {
+          from: { maxHeight: "0" },
+        },
+      },
+      animation: {
+        shake: "shake 300ms ease-in-out infinite",
+        "horizontal-shake": "horizontal-shake 300ms ease-in-out infinite",
+        "vertical-shake": "vertical-shake 300ms ease-in-out infinite",
+        "max-height": "max-height 300ms ease-in-out",
+      },
     },
   },
+  safelist: [
+    {
+      pattern: /animate-.*/,
+    },
+  ],
   plugins: [],
 };

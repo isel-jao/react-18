@@ -47,3 +47,20 @@ export function IsValidRef(ref: unknown) {
   }
   return false;
 }
+
+export function addAndRemoveClassWithDelay(
+  element: HTMLElement,
+  className: string,
+  ms: number = 500,
+) {
+  const classNames = className.split(" ").filter((c) => c);
+
+  classNames.forEach((className) => {
+    element.classList.add(className);
+  });
+  setTimeout(() => {
+    classNames.forEach((className) => {
+      element.classList.remove(className);
+    });
+  }, ms);
+}
