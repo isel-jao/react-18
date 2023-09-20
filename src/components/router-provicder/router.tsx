@@ -44,28 +44,6 @@ export const routes: RouteType[] = [
         element: <HooksPage />,
         name: "hooks",
         icon: <HookIcon />,
-        // children: [
-        //   {
-        //     path: "use-transition",
-        //     element: <UseTransitionPage />,
-        //     name: "useTransition",
-        //   },
-        //   {
-        //     path: "use-local-storage",
-        //     element: <UseLocalStoragePage />,
-        //     name: "useLocalStorage",
-        //   },
-        //   {
-        //     path: "use-debounce",
-        //     element: <UseDeboucePage />,
-        //     name: "UseDebouce",
-        //   },
-        //   {
-        //     path: "use-ref",
-        //     element: <UseRefPage />,
-        //     name: "UseRef/ForwardRef",
-        //   },
-        // ],
       },
       {
         path: "dev",

@@ -5,6 +5,7 @@ import UseLocalStorage from "./use-local-storage";
 import UseRef from "./use-ref";
 import UseDebouce from "./use-debounce";
 import UserDeferedValue from "./use-defered-value";
+import UseImperativeHandle from "./use-imperative-handle";
 
 const hooks = [
   {
@@ -26,6 +27,10 @@ const hooks = [
   {
     name: "useDeferedValue",
     component: UserDeferedValue,
+  },
+  {
+    name: "useImperativeHandle",
+    component: UseImperativeHandle,
   },
 ];
 

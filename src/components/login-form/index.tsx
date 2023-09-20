@@ -55,7 +55,7 @@ export default function LoginFrom({ className, callback }: Props) {
   return (
     <form
       className={twMerge(
-        "grid grid-cols-[auto,1fr] gap-x-4 gap-y-6",
+        "grid grid-cols-[auto,1fr] items-center gap-x-4 gap-y-6",
         className,
       )}
       onSubmit={handleSubmit}
