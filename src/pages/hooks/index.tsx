@@ -15,6 +15,7 @@ const hooks = [
   {
     name: "useLocalStorage",
     component: UseLocalStorage,
+    isCustom: true,
   },
   {
     name: "useRef",
@@ -23,6 +24,7 @@ const hooks = [
   {
     name: "useDebounce",
     component: UseDebouce,
+    isCustom: true,
   },
   {
     name: "useDeferedValue",
@@ -37,7 +39,7 @@ const hooks = [
 export default function HooksPage() {
   return (
     <div className="flex h-full flex-col gap-6 overflow-hidden !px-0">
-      <div className="flex gap-2 overflow-x-auto ">
+      <div className="hide-scrollbar flex gap-2 overflow-x-auto px-4">
         {hooks.map((hook) => (
           <Button
             variant="ghost"
@@ -50,14 +52,16 @@ export default function HooksPage() {
           </Button>
         ))}
       </div>
-      <div className="flex h-1 flex-1 flex-col gap-4 overflow-x-hidden scroll-smooth px-4">
+      <div className="flex h-1 flex-1 flex-col gap-4 overflow-x-hidden scroll-smooth px-4 ">
         {hooks.map((hook) => (
           <Card
             key={hook.name}
             className="ga flex flex-col gap-4 p-4"
             id={hook.name}
           >
-            <h3 className="text-2xl">{hook.name}</h3>
+            <h3 className="text-2xl">
+              {hook.name} {hook.isCustom && "(custom)"}
+            </h3>
             <hook.component />
           </Card>
         ))}

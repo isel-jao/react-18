@@ -1,18 +1,16 @@
 import App from "@/App";
 import HomePage from "@/pages/home";
 import NotFoundPage from "@/pages/not-found";
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { ReactComponent as HomeIcon } from "@/assets/home.svg";
 import { ReactComponent as MapIcon } from "@/assets/map.svg";
 import { ReactComponent as DevIcon } from "@/assets/dev.svg";
 import { ReactComponent as HookIcon } from "@/assets/hook.svg";
+import { ReactComponent as ComponentsIcon } from "@/assets/components.svg";
 import LeafletPage from "@/pages/leaflet";
 import DevPage from "@/pages/dev";
-import UseTransitionPage from "@/pages/use-transition";
-import UseLocalStoragePage from "@/pages/use-local-storage";
-import UseDeboucePage from "@/pages/use-debounce";
-import UseRefPage from "@/pages/use-ref";
 import HooksPage from "@/pages/hooks";
+import ComponentsPage from "@/pages/components";
 
 export type RouteType = {
   path: string;
@@ -44,6 +42,12 @@ export const routes: RouteType[] = [
         element: <HooksPage />,
         name: "hooks",
         icon: <HookIcon />,
+      },
+      {
+        path: "components",
+        element: <ComponentsPage />,
+        name: "components",
+        icon: <ComponentsIcon />,
       },
       {
         path: "dev",

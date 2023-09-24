@@ -1,7 +1,8 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
   variant?: "filled" | "outline" | "ghost";
 }
@@ -12,7 +13,7 @@ export default function Button({
   variant = "filled",
   children,
   ...props
-}: Props) {
+}: ButtonProps) {
   return (
     <button
       className={twMerge(

@@ -59,9 +59,10 @@ export default function LoginFrom({ className, callback }: Props) {
         className,
       )}
       onSubmit={handleSubmit}
+      name="login"
     >
       {errors.length > 0 && (
-        <div className="animate-max-height col-span-full max-h-[10rem] overflow-hidden">
+        <div className="col-span-full max-h-[10rem] animate-max-height overflow-hidden">
           <ul className="flex flex-col gap-3 rounded bg-red-500 p-4 text-white ">
             {errors.map((error) => (
               <li key={error}>- {error}</li>

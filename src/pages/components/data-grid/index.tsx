@@ -23,7 +23,7 @@ function generateUsers(num: number): User[] {
   }));
 }
 
-export default function DevPage() {
+export default function DataGridExample() {
   const [users] = useState<User[]>(() => generateUsers(10));
 
   const columns: DataGridColumn<User>[] = [
