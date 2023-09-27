@@ -6,8 +6,13 @@ import UseRef from "./use-ref";
 import UseDebouce from "./use-debounce";
 import UserDeferedValue from "./use-defered-value";
 import UseImperativeHandle from "./use-imperative-handle";
+import UseTrendExample from "../home/use-trend";
 
-const hooks = [
+const hooks: {
+  name: string;
+  component: () => JSX.Element;
+  isCustom?: boolean;
+}[] = [
   {
     name: "useTransition",
     component: UseTransition,
@@ -33,6 +38,11 @@ const hooks = [
   {
     name: "useImperativeHandle",
     component: UseImperativeHandle,
+  },
+  {
+    name: "useTrend",
+    component: UseTrendExample,
+    isCustom: true,
   },
 ];
 

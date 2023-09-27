@@ -94,7 +94,7 @@ function UsersTable() {
   // const { mutate } = useSWRConfig();
 
   return (
-    <div className="flex flex-col gap-4 overflow-auto p-4">
+    <div className="flex flex-col gap-4 overflow-auto p-4 ">
       <Button
         onClick={() => {
           mutate(undefined, false);
