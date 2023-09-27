@@ -34,7 +34,7 @@ export default function DevPage() {
       show: false,
     },
     {
-      header: "Name",
+      header: "name",
       label: "name",
       valueGetter: (user) => (
         <div
@@ -54,17 +54,17 @@ export default function DevPage() {
       ),
     },
     {
-      header: "Email",
+      header: "email",
       label: "email",
       valueGetter: (user) => user.email,
     },
     {
-      header: "Phone",
+      header: "phone",
       label: "phone",
       valueGetter: (user) => user.phone,
     },
     {
-      header: "Website",
+      header: "website",
       label: "website",
       valueGetter: (user) => (
         <a

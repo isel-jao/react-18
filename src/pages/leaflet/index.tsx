@@ -1,6 +1,6 @@
 import MapControls from "@/components/map-control";
 import { useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, Polygon } from "react-leaflet";
 
 const sites = [
   {
@@ -69,6 +69,13 @@ export default function LeafletPage() {
             </Popup>
           </Marker>
         ))}
+        <Polygon positions={filterdSites.map((site) => [site.lat, site.lng])}>
+          <Popup>
+            <div className="bg-blur rounded bg-white/50 p-6 shadow-md">
+              {filterdSites.map((site) => site.name).join(", ")}
+            </div>
+          </Popup>
+        </Polygon>
         <MapControls
           bounds={filterdSites.map((site) => [site.lat, site.lng])}
         />

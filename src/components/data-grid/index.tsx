@@ -84,6 +84,17 @@ export default function DataGrid<T>({
       >
         <Head />
         <Body />
+        {rows.length === 0 && (
+          <tbody>
+            <tr>
+              <td colSpan={selectedColumns.length}>
+                <div className=" w-full py-16 text-center">
+                  no data available.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        )}
       </table>
     </TableContext.Provider>
   );

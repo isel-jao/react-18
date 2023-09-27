@@ -2,6 +2,7 @@ import Card from "@/components/card";
 import Button from "@/components/button";
 import DataGridExample from "./data-grid";
 import DrawerExample from "./drawer";
+import SuspenseExample from "./suspense";
 
 const hooks: {
   name: string;
@@ -17,6 +18,10 @@ const hooks: {
     name: "drawer",
     Component: DrawerExample,
     isCustom: true,
+  },
+  {
+    name: "suspense",
+    Component: SuspenseExample,
   },
 ];
 
