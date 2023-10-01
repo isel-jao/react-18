@@ -6,7 +6,7 @@ import UseRef from "./use-ref";
 import UseDebouce from "./use-debounce";
 import UserDeferedValue from "./use-defered-value";
 import UseImperativeHandle from "./use-imperative-handle";
-import UseTrendExample from "../home/use-trend";
+import UseDiffExample from "../home/use-diff";
 
 const hooks: {
   name: string;
@@ -40,8 +40,8 @@ const hooks: {
     component: UseImperativeHandle,
   },
   {
-    name: "useTrend",
-    component: UseTrendExample,
+    name: "useDiff",
+    component: UseDiffExample,
     isCustom: true,
   },
 ];

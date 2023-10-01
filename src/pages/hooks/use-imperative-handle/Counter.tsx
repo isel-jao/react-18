@@ -23,7 +23,7 @@ function Counter(_props: CounterProps, ref: React.Ref<CounterRef>) {
       >
         -
       </Button>
-      <p className="min-w-[4rem] text-center">Count: {count}</p>
+      <p className="min-w-[4rem] text-center text-xl">Count: {count}</p>
 
       <Button
         onClick={() => setCount((c) => c + 1)}
