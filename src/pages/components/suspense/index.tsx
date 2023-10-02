@@ -1,10 +1,12 @@
 import Card from "@/components/card";
 import DataGrid, { DataGridColumn } from "@/components/data-grid";
 import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 import { twMerge } from "tailwind-merge";
 import useSWR, { useSWRConfig } from "swr";
 import Button from "@/components/button";
+import { CustomError } from "@/utils";
+import ErrorBoundary from "@/components/error-boundry";
+import Spinner from "@/components/spinner";
 
 type User = {
   id: number;
@@ -28,9 +30,22 @@ function generateUsers(num: number): User[] {
 }
 
 async function fetchUsers(): Promise<User[]> {
-  return new Promise((resolve) => {
+  console.log("fetchUsers");
+
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(generateUsers(10));
+      const isError = Math.random() > 0.5;
+      if (isError)
+        reject(
+          new CustomError(
+            (
+              <div className=" flex h-[30rem] items-center justify-center text-3xl text-red-500 first-letter:uppercase">
+                ka-boom!
+              </div>
+            ),
+          ),
+        );
+      else resolve(generateUsers(10));
     }, 1000);
   });
 }
@@ -88,21 +103,24 @@ const columns: DataGridColumn<User>[] = [
 ];
 
 function UsersTable() {
-  const { data: users, mutate } = useSWR<User[]>("users", fetchUsers, {
+  const {
+    data: users,
+    isValidating,
+    error,
+  } = useSWR<User[]>("users", fetchUsers, {
     suspense: true,
   });
-  // const { mutate } = useSWRConfig();
+
+  if (error) throw error;
 
   return (
     <div className="flex flex-col gap-4 overflow-auto p-4 ">
-      <Button
-        onClick={() => {
-          mutate(undefined, false);
-        }}
-      >
-        invalidate
-      </Button>
-      <Card className="w-full min-w-fit overflow-hidden p-0">
+      <Card className="relative w-full min-w-fit overflow-hidden p-0">
+        {isValidating && (
+          <div className=" absolute left-0 top-0 flex h-full w-full items-center justify-center bg-[#7f7f7f]/10">
+            <Spinner className="h-20 w-20 fill-primary-500" />
+          </div>
+        )}
         <DataGrid
           className="w-full [&>*>tr>*]:first-letter:normal-case [&>thead]:bg-[#7f7f7f]/10"
           columns={columns}
@@ -114,11 +132,34 @@ function UsersTable() {
 }
 
 export default function SuspenseExample() {
+  const { mutate } = useSWRConfig();
   return (
-    <ErrorBoundary fallback={<div>Couldn't fetch data!</div>}>
-      <Suspense fallback={<div className="relative">loading...</div>}>
-        <UsersTable />
-      </Suspense>
-    </ErrorBoundary>
+    <div className="flex flex-col">
+      <Button
+        onClick={() => {
+          mutate("users");
+        }}
+      >
+        invalidate
+      </Button>
+
+      <ErrorBoundary
+        fallback={
+          <div className="flex h-[30rem] items-center justify-center first-letter:uppercase">
+            couldn't fetch data!
+          </div>
+        }
+      >
+        <Suspense
+          fallback={
+            <div className="flex h-[30rem] items-center justify-center capitalize">
+              <Spinner className="h-20 w-20 fill-primary-500" />
+            </div>
+          }
+        >
+          <UsersTable />
+        </Suspense>
+      </ErrorBoundary>
+    </div>
   );
 }
