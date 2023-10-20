@@ -3,6 +3,7 @@ import Button from "@/components/button";
 import DataGridExample from "./data-grid";
 import DrawerExample from "./drawer";
 import SuspenseExample from "./suspense";
+import FieldsetExample from "./fieldset";
 
 const hooks: {
   name: string;
@@ -22,6 +23,10 @@ const hooks: {
   {
     name: "suspense",
     Component: SuspenseExample,
+  },
+  {
+    name: "fieldset",
+    Component: FieldsetExample,
   },
 ];
 
