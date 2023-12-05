@@ -1,12 +1,13 @@
 import Card from "@/components/card";
 import DataGrid, { DataGridColumn } from "@/components/data-grid";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import useSWR, { useSWRConfig } from "swr";
 import Button from "@/components/button";
 import { CustomError } from "@/utils";
 import ErrorBoundary from "@/components/error-boundry";
 import Spinner from "@/components/spinner";
+import { set } from "zod";
 
 type User = {
   id: number;
@@ -133,15 +134,29 @@ function UsersTable() {
 
 export default function SuspenseExample() {
   const { mutate } = useSWRConfig();
+  const [count, setCount] = useState(0);
+
   return (
     <div className="flex flex-col">
-      <Button
-        onClick={() => {
-          mutate("users");
-        }}
-      >
-        invalidate
-      </Button>
+      <div className="flex items-center gap-8">
+        <Button
+          onClick={() => {
+            mutate("users");
+          }}
+        >
+          invalidate
+        </Button>
+        <Button
+          onClick={() => {
+            setCount((count) => count + 1);
+          }}
+        >
+          inc
+        </Button>
+        <span>
+          count: <span className="text-primary-500">{count}</span>
+        </span>
+      </div>
 
       <ErrorBoundary
         fallback={
