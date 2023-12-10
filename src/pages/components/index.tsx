@@ -11,6 +11,11 @@ const hooks: {
   isCustom?: boolean;
 }[] = [
   {
+    name: "suspense/ error-boundry",
+    Component: SuspenseExample,
+    isCustom: true,
+  },
+  {
     name: "data grid",
     Component: DataGridExample,
     isCustom: true,
